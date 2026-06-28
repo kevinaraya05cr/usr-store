@@ -1,35 +1,53 @@
-const imagen = document.getElementById("imagenPrincipal");
+let cantidad = 1;
+
+const cantidadTexto = document.getElementById("cantidad");
+const btnMas = document.getElementById("mas");
+const btnMenos = document.getElementById("menos");
 const color = document.getElementById("color");
 const talla = document.getElementById("talla");
-const cantidad = document.getElementById("cantidad");
-const boton = document.getElementById("botonWhatsapp");
+const whatsapp = document.getElementById("whatsapp");
+const imagen = document.getElementById("mainImage");
 
-color.addEventListener("change", cambiarImagen);
+// Cambiar cantidad
+btnMas.addEventListener("click", () => {
+    cantidad++;
+    cantidadTexto.textContent = cantidad;
+});
 
-function cambiarImagen(){
+btnMenos.addEventListener("click", () => {
+    if (cantidad > 1) {
+        cantidad--;
+        cantidadTexto.textContent = cantidad;
+    }
+});
 
-if(color.value=="negra"){
-imagen.src="camisa-negra-frente.jpg";
-}
+// Cambiar imagen según el color
+color.addEventListener("change", () => {
 
-if(color.value=="blanca"){
-imagen.src="camisa-blanca-frente.jpg";
-}
+    if (color.value === "blanca") {
+        imagen.src = "camisas/camiseta blanca frente y atras.png";
+    } else {
+        imagen.src = "camisas/camiseta negra frente y atras.png";
+    }
 
-actualizarWhatsapp();
+});
 
-}
+// Botón de WhatsApp
+whatsapp.addEventListener("click", function(e){
 
-talla.addEventListener("change", actualizarWhatsapp);
-cantidad.addEventListener("input", actualizarWhatsapp);
+    e.preventDefault();
 
-function actualizarWhatsapp(){
+    const mensaje =
+`Hola 👋
 
-const mensaje=
-`https://wa.me/50686243479?text=Hola Kevin,%20quiero%20comprar:%0A%0AModelo:%20USR%20Oversized%20Tee%0AColor:%20${color.value}%0ATalla:%20${talla.value}%0ACantidad:%20${cantidad.value}`;
+Quiero comprar una prenda de USR STORE.
 
-boton.href=mensaje;
+👕 Color: ${color.value}
+📏 Talla: ${talla.value}
+📦 Cantidad: ${cantidad}`;
 
-}
+    const url = "https://wa.me/50686243479?text=" + encodeURIComponent(mensaje);
 
-actualizarWhatsapp();
+    window.open(url, "_blank");
+
+});
