@@ -1,2 +1,0 @@
-# usr-store
-USR STORE 
