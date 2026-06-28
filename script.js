@@ -1,76 +1,35 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+const imagen = document.getElementById("imagenPrincipal");
+const color = document.getElementById("color");
+const talla = document.getElementById("talla");
+const cantidad = document.getElementById("cantidad");
+const boton = document.getElementById("botonWhatsapp");
+
+color.addEventListener("change", cambiarImagen);
+
+function cambiarImagen(){
+
+if(color.value=="negra"){
+imagen.src="camisa-negra-frente.jpg";
 }
 
-body{
-background:#0f0f0f;
-color:white;
-padding:40px;
+if(color.value=="blanca"){
+imagen.src="camisa-blanca-frente.jpg";
 }
 
-.contenedor{
-display:flex;
-justify-content:center;
-align-items:flex-start;
-gap:60px;
-max-width:1200px;
-margin:auto;
-flex-wrap:wrap;
+actualizarWhatsapp();
+
 }
 
-.producto img{
-width:450px;
-border-radius:15px;
+talla.addEventListener("change", actualizarWhatsapp);
+cantidad.addEventListener("input", actualizarWhatsapp);
+
+function actualizarWhatsapp(){
+
+const mensaje=
+`https://wa.me/50686243479?text=Hola Kevin,%20quiero%20comprar:%0A%0AModelo:%20USR%20Oversized%20Tee%0AColor:%20${color.value}%0ATalla:%20${talla.value}%0ACantidad:%20${cantidad.value}`;
+
+boton.href=mensaje;
+
 }
 
-.informacion{
-width:360px;
-}
-
-h1{
-font-size:34px;
-margin-bottom:10px;
-}
-
-.precio{
-font-size:28px;
-font-weight:bold;
-margin-bottom:25px;
-}
-
-label{
-display:block;
-margin-top:20px;
-margin-bottom:8px;
-font-weight:bold;
-}
-
-select,
-input{
-width:100%;
-padding:12px;
-border-radius:8px;
-border:none;
-font-size:16px;
-}
-
-#botonWhatsapp{
-display:block;
-margin-top:30px;
-padding:16px;
-background:#25D366;
-color:white;
-text-align:center;
-text-decoration:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
-transition:.3s;
-}
-
-#botonWhatsapp:hover{
-background:#1da851;
-}
+actualizarWhatsapp();
