@@ -3,51 +3,104 @@ let cantidad = 1;
 const cantidadTexto = document.getElementById("cantidad");
 const btnMas = document.getElementById("mas");
 const btnMenos = document.getElementById("menos");
+
+const producto = document.getElementById("producto");
 const color = document.getElementById("color");
 const talla = document.getElementById("talla");
+
 const whatsapp = document.getElementById("whatsapp");
 const imagen = document.getElementById("mainImage");
 
-// Cambiar cantidad
+// -------------------------
+// Cantidad
+// -------------------------
+
 btnMas.addEventListener("click", () => {
+
     cantidad++;
+
     cantidadTexto.textContent = cantidad;
+
 });
 
 btnMenos.addEventListener("click", () => {
-    if (cantidad > 1) {
+
+    if(cantidad > 1){
+
         cantidad--;
+
         cantidadTexto.textContent = cantidad;
-    }
-});
 
-// Cambiar imagen según el color
-color.addEventListener("change", () => {
-
-    if (color.value === "blanca") {
-        imagen.src = "camisas/camiseta blanca frente y atras.png";
-    } else {
-        imagen.src = "camisas/camiseta negra frente y atras.png";
     }
 
 });
 
-// Botón de WhatsApp
+// -------------------------
+// Cambiar imagen
+// -------------------------
+
+function actualizarImagen(){
+
+    if(producto.value === "camiseta"){
+
+        if(color.value === "negra"){
+
+            imagen.src = "camisas/camiseta negra frente y atras.png";
+
+        }else{
+
+            imagen.src = "camisas/camiseta blanca frente y atras.png";
+
+        }
+
+    }else{
+
+        if(color.value === "negra"){
+
+            imagen.src = "camisas/Crop top negra fente y atras.png";
+
+        }else{
+
+            imagen.src = "camisas/crop top blanco frente y trasero.png";
+
+        }
+
+    }
+
+}
+
+producto.addEventListener("change", actualizarImagen);
+
+color.addEventListener("change", actualizarImagen);
+
+actualizarImagen();
+
+// -------------------------
+// WhatsApp
+// -------------------------
+
 whatsapp.addEventListener("click", function(e){
 
     e.preventDefault();
 
     const mensaje =
-`Hola 👋
+
+`Hola Kevin 👋
 
 Quiero comprar una prenda de USR STORE.
 
-👕 Color: ${color.value}
-📏 Talla: ${talla.value}
-📦 Cantidad: ${cantidad}`;
+Producto: ${producto.value}
 
-    const url = "https://wa.me/50686243479?text=" + encodeURIComponent(mensaje);
+Color: ${color.value}
 
-    window.open(url, "_blank");
+Talla: ${talla.value}
+
+Cantidad: ${cantidad}`;
+
+    const url =
+
+"https://wa.me/50686243479?text=" + encodeURIComponent(mensaje);
+
+    window.open(url,"_blank");
 
 });
