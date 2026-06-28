@@ -11,27 +11,38 @@
 <h1>USR STORE</h1>
 <div class="product">
 <div class="image">
-<img id="mainImage" src="camisas/camiseta negra frente y atras.png" alt="Producto">
+<img id="mainImage" src="camisas/camiseta negra frente y atras.png" alt="USR Store">
 </div>
 <div class="details">
+<label>PRODUCTO</label>
+<select id="producto">
+<option value="camiseta">Camiseta</option>
+<option value="croptop">Crop Top</option>
+</select>
+
 <label>COLOR</label>
 <select id="color">
 <option value="negra">Negra</option>
 <option value="blanca">Blanca</option>
 </select>
+
 <label>TALLA</label>
 <select id="talla">
 <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
 </select>
+
 <label>CANTIDAD</label>
 <div class="qty">
 <button id="menos">-</button>
 <span id="cantidad">1</span>
 <button id="mas">+</button>
 </div>
-<a id="whatsapp" href="#" target="_blank">Comprar por WhatsApp</a>
+
+<a id="whatsapp" href="#">Comprar por WhatsApp</a>
+
 </div>
 </div>
+
 <script src="script.js"></script>
 </div>
 </body>
