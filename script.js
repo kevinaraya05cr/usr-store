@@ -134,3 +134,20 @@ if (menuToggle && mainNav) {
     menuToggle.textContent = "☰";
   }));
 }
+
+// Navegación interna optimizada para Safari móvil
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", function(e) {
+    const id = this.getAttribute("href");
+    if (!id || id === "#") return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    requestAnimationFrame(() => {
+      const header = document.querySelector(".top");
+      const offset = header ? header.offsetHeight + 10 : 0;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({top, behavior:"smooth"});
+    });
+  }, {passive:false});
+});
