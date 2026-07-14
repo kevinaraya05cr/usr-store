@@ -118,3 +118,19 @@ document.getElementById("stepWhatsapp").addEventListener("click", e => {
   e.preventDefault();
   whatsapp.click();
 });
+
+// Menú responsive para iPhone y otros móviles
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    const abierto = mainNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", abierto);
+    menuToggle.textContent = abierto ? "✕" : "☰";
+  });
+  mainNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  }));
+}
