@@ -104,3 +104,17 @@ Cantidad: ${cantidad}`;
     window.open(url,"_blank");
 
 });
+
+// Catálogo conectado con el configurador de compra
+document.querySelectorAll(".item").forEach(card => {
+  card.addEventListener("click", () => {
+    producto.value = card.dataset.producto;
+    color.value = card.dataset.color;
+    actualizarImagen();
+    document.getElementById("inicio").scrollIntoView({behavior:"smooth"});
+  });
+});
+document.getElementById("stepWhatsapp").addEventListener("click", e => {
+  e.preventDefault();
+  whatsapp.click();
+});

@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USR STORE</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>USR STORE</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="store">
-<h1>USR STORE</h1>
-<div class="product">
-<div class="image">
-<img id="mainImage" src="camisas/camiseta negra frente y atras.png" alt="USR Store">
-</div>
-<div class="details">
-<label>PRODUCTO</label>
-<select id="producto">
-<option value="camiseta">Camiseta</option>
-<option value="croptop">Crop Top</option>
-</select>
+<header class="top"><a href="#inicio" class="brand">USR STORE</a><nav><a href="#inicio">Inicio</a><a href="#tallas">Tallas</a><a href="#productos">Productos</a><a href="#como-comprar">Cómo comprar</a><a href="#contacto">Contacto</a></nav></header>
+<main class="store" id="inicio">
+<section class="hero"><p>URBAN STYLE REVOLUTION</p><h1>USR STORE</h1><span>Más que baile, un estilo de vida.</span></section>
+<section class="product buy-card">
+<div class="image"><img id="mainImage" src="camisas/camiseta negra frente y atras.png" alt="Producto USR Store"></div>
+<div class="details"><h2>ARMA TU PEDIDO</h2>
+<label>PRODUCTO</label><select id="producto"><option value="camiseta">Camiseta</option><option value="croptop">Crop Top</option></select>
+<label>COLOR</label><select id="color"><option value="negra">Negra</option><option value="blanca">Blanca</option></select>
+<label>TALLA</label><select id="talla"><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+<label>CANTIDAD</label><div class="qty"><button id="menos">−</button><span id="cantidad">1</span><button id="mas">+</button></div>
+<a id="whatsapp" href="#">Comprar por WhatsApp</a></div></section>
 
-<label>COLOR</label>
-<select id="color">
-<option value="negra">Negra</option>
-<option value="blanca">Blanca</option>
-</select>
+<section id="tallas" class="section"><div class="section-title"><small>ELIGE LA MEDIDA CORRECTA</small><h2>GUÍA DE TALLAS</h2></div>
+<div class="size-grid"><img src="camisas/tabla de tallas.png" alt="Tabla de tallas"><img src="camisas/informacion de la medida de camiseta.png" alt="Cómo medir una camiseta"></div>
+<a class="back-buy" href="#inicio">Elegir producto y talla ↑</a></section>
 
-<label>TALLA</label>
-<select id="talla">
-<option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
-</select>
+<section class="benefits"><div>✦<b>Calidad Premium</b><span>Materiales seleccionados</span></div><div>◆<b>Diseños Exclusivos</b><span>Identidad USR</span></div><div>🚚<b>Envíos a Todo CR</b><span>Coordinación por WhatsApp</span></div><div>✓<b>Compra Directa</b><span>Atención personalizada</span></div></section>
 
-<label>CANTIDAD</label>
-<div class="qty">
-<button id="menos">-</button>
-<span id="cantidad">1</span>
-<button id="mas">+</button>
-</div>
+<section id="productos" class="section"><div class="section-title"><small>COLECCIÓN USR</small><h2>PRODUCTOS DISPONIBLES</h2></div>
+<div class="catalog">
+<button class="item" data-producto="camiseta" data-color="negra"><img src="camisas/camiseta negra frente y atras.png"><b>Camiseta Negra</b><span>Seleccionar producto</span></button>
+<button class="item" data-producto="camiseta" data-color="blanca"><img src="camisas/camiseta blanca frente y atras.png"><b>Camiseta Blanca</b><span>Seleccionar producto</span></button>
+<button class="item" data-producto="croptop" data-color="negra"><img src="camisas/Crop top negra fente y atras.png"><b>Crop Top Negro</b><span>Seleccionar producto</span></button>
+<button class="item" data-producto="croptop" data-color="blanca"><img src="camisas/crop top blanco frente y trasero.png"><b>Crop Top Blanco</b><span>Seleccionar producto</span></button>
+</div></section>
 
-<a id="whatsapp" href="#">Comprar por WhatsApp</a>
-
-</div>
-</div>
-
-<script src="script.js"></script>
-</div>
-</body>
-</html>
+<section id="como-comprar" class="section"><div class="section-title"><small>RÁPIDO Y SENCILLO</small><h2>¿CÓMO COMPRAR?</h2></div>
+<div class="steps"><a href="#productos"><i>1</i><b>Elige tu producto</b><span>Selecciona el modelo que prefieras.</span></a><a href="#inicio"><i>2</i><b>Selecciona talla y cantidad</b><span>Configura tu pedido en la tarjeta.</span></a><a href="#" id="stepWhatsapp"><i>3</i><b>Escríbenos por WhatsApp</b><span>Envía los datos de tu pedido.</span></a><a href="#contacto"><i>4</i><b>Coordina pago y entrega</b><span>Confirmamos contigo los detalles.</span></a></div></section>
+</main>
+<footer id="contacto"><div class="footer-grid"><div><h3>USR DANCE STUDIO</h3><p>Creativity · Discipline · Progress</p><p>Movimiento, comunidad y estilo.</p></div><div><h4>NAVEGACIÓN</h4><a href="#inicio">Inicio</a><a href="#tallas">Guía de tallas</a><a href="#productos">Tienda</a><a href="#como-comprar">Cómo comprar</a></div><div><h4>CONTACTO</h4><a href="https://wa.me/50686243479" target="_blank">WhatsApp</a><a href="#inicio">Comprar ahora</a><span>San Ramón, Alajuela, Costa Rica</span></div></div><div class="copy">© 2026 USR DANCE STUDIO · Todos los derechos reservados.</div></footer>
+<script src="script.js"></script></body></html>
